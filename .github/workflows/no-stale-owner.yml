@@ -12,14 +12,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: 扫描 lyl-0722 / 吕应龙 残留
         run: |
-          if grep -rInE 'lyl-0722|lyl_0722|吕应龙' --exclude-dir=.git . ; then
+          if grep -rInE 'lyl-0722|lyl_0722|吕应龙' --exclude-dir=.git --exclude=no-stale-owner.yml . ; then
             echo "::error::检测到旧账号残留，应为 Socldy / socldy.github.io"
             exit 1
           fi
           echo "✅ 无残留"
       - name: 扫描硬编码密钥
         run: |
-          if grep -rInE 'gh[pousr]_[A-Za-z0-9]{30,}' --exclude-dir=.git . ; then
+          if grep -rInE 'gh[pousr]_[A-Za-z0-9]{30,}' --exclude-dir=.git --exclude=no-stale-owner.yml . ; then
             echo "::error::检测到疑似 GitHub PAT，请立即撤销并从文件中移除"
             exit 1
           fi
