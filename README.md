@@ -4,7 +4,7 @@
 
 ## 查看看板
 
-🔗 **在线访问**：[https://lyl-0722.github.io/skill-dashboard/](https://lyl-0722.github.io/skill-dashboard/)
+🔗 **在线访问**：[https://socldy.github.io/skill-dashboard/](https://socldy.github.io/skill-dashboard/)
 
 ## 文件说明
 
@@ -20,4 +20,4 @@
 
 ## 数据来源
 
-数据从 GitHub 仓库 [lyl-0722/team-skills-demo](https://github.com/lyl-0722/team-skills-demo) 实时拉取。
+数据从 GitHub 仓库 [Socldy/team-skills-demo](https://github.com/Socldy/team-skills-demo) 实时拉取。
