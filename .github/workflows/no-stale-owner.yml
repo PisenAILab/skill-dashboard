@@ -1,0 +1,26 @@
+name: Guard · 禁止旧账号引用回潮
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 扫描 lyl-0722 / 吕应龙 残留
+        run: |
+          if grep -rInE 'lyl-0722|lyl_0722|吕应龙' --exclude-dir=.git . ; then
+            echo "::error::检测到旧账号残留，应为 Socldy / socldy.github.io"
+            exit 1
+          fi
+          echo "✅ 无残留"
+      - name: 扫描硬编码密钥
+        run: |
+          if grep -rInE 'gh[pousr]_[A-Za-z0-9]{30,}' --exclude-dir=.git . ; then
+            echo "::error::检测到疑似 GitHub PAT，请立即撤销并从文件中移除"
+            exit 1
+          fi
+          echo "✅ 无密钥泄露"
